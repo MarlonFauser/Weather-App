@@ -1,0 +1,9 @@
+body {
+  height: 100vh;
+  background-color: #F1F1F1;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  -webkit-overflow-scrolling: auto;
+}

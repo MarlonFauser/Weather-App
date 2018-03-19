@@ -1,0 +1,154 @@
+.divCenter {
+  width: 100%;
+  text-align: center;
+  margin:0 auto;
+}
+
+.loadingCenter {
+  padding-bottom: 60px;
+  padding-top: 24px;
+  text-align: center;
+  margin:0 auto;
+  position: relative;
+}
+.headerTopFix {
+  z-index: 1050;
+  display:block;
+  position:fixed;
+  width:100%;
+  text-align:center;
+
+  top: 0; 
+  width: 100%;
+  background-color: white;
+  border-bottom: 5px solid #EBEBEB;
+  border-width: 1px;
+}
+
+.pError{
+  font-size: large;
+  color:#ED1946;
+  padding-top: 25px; 
+}
+
+.celsius{
+  vertical-align: super;
+  font-size: 39px;
+  padding-top: 0px;
+}
+
+.divBoxTop{
+  display: inline-flex;
+  padding-top: 10%;
+  height: 100%;
+}
+.divBoxMiddle{
+  padding-top: 10%;
+  padding-bottom: 10%;
+  display: inline-flex;
+  height: 100%;
+  width: 300px;
+}
+
+.divBoxBottom{
+  display: inline-flex;
+  padding-bottom: 10%;
+  height: 100%;
+}
+
+.divBoxIn{
+  margin: 0 auto;
+  float: initial;
+background-color: white;
+color: #737C84;
+  height: 100%;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 3px 3px 0 rgba(200, 200, 200, 0.2), 0 3px 1px -2px rgba(200, 200, 200, 0.2), 0 1px 5px 0 rgba(200, 200, 200, 0.2);
+  position: relative;
+  border-radius: 2%;
+}
+
+.headerDivBox {
+  padding-bottom:10px; 
+  top: 0;
+  vertical-align: middle;
+  border-bottom: 5px solid #EBEBEB;
+  border-width: 1.3px;
+}
+
+.greyFooter {
+  width: 100%;
+  vertical-align: bottom;
+  background-color: rgba(241, 241, 241, 0.5);
+  color:rgba(0, 0, 0, 0.2);
+}
+
+.contentPane{
+  display: inline-block;
+  padding-top: 10%;
+}
+
+.blueDegree {
+  padding-bottom: 20px;
+  display: block;
+  text-align: center;
+  font-size: 90px;
+  color: #69A3FF;
+}
+
+.orangeDegree {
+  padding-bottom: 20px;
+  display: block;
+  text-align: center;
+  font-size: 90px;
+  color: #FF9632;
+}
+
+.redDegree {
+  padding-bottom: 20px;
+  display: block;
+  text-align: center;
+  font-size: 90px;
+  color: #ED1946;
+}
+
+.boldLetter{
+  color: rgba(0, 0, 0, 0.7);
+}
+
+table, tbody{
+  table-layout: fixed;
+  border-spacing: 0px;
+  width: 100%;
+}
+
+th {
+  padding-top: 13px;
+  font-size: 12px;
+}
+
+tr{
+  font-weight: unset;
+  font-size: 18px;
+}
+
+button {
+  border-style: solid;
+  border-color: #737C84;
+  padding: 8px 13px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: white;
+  color: rgb(115,124,132);
+  font-weight: 100;
+  outline: none;
+}
+
+button:active {
+  outline: none;
+}
