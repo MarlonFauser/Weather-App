@@ -1,80 +1,45 @@
-# Project Title
+# Weather App
 
-One Paragraph of project description goes here
+See the weather in real time with this awesome app!
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To initiate the project we need to get the files and put in our local machine.
 
 ### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
+ 
+ To build and run this app for development or production mode we need to be certain that we have two
+ components installed: NPM & React DOM
+ 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Step by step of how to install them.
 
 ```
-Give the example
+-cd weathernow
+-npm install --save react react-dom
+-npm start
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+After the last command line the terminal will send a command to open our browser in our localhost with default port 3000, running the app.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+The tests for this app is in production yet, but we know the great importance that tests are for the development of this app.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+This app was made in a few hours, so it can contain inconsistencys.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [ReactJs](https://reactjs.org/) - The library used
+* [NPM](https://www.npmjs.com/) - Package Manager
+* [Open Weather Map](https://openweathermap.org/api) - API used to get weather informations.
+oject/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Marlon Fauser** - *Full work* - [MarlonFauser](https://github.com/MarlonFauser)
 
 ## License
 
@@ -82,6 +47,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* The future are in our hands.
