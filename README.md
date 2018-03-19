@@ -16,7 +16,7 @@ To initiate the project we need to get the files and put in our local machine.
 
 ### Prerequisites
  
- To build and run this app for development or production mode we need to be certain that we have two
+ To build and run this app for development or production mode we need to be certain that we have three
  components installed: NPM, Yarn and React DOM
  
 ### Installing
