@@ -5,7 +5,6 @@ const Loader = props => (
     <div className="loadingCenter">
         <img src={LoaderImg} alt="logo" />
     </div>
-    
 );
 
 export default Loader;

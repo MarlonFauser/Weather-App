@@ -11,11 +11,11 @@ class App extends React.Component {
     country: ["GL", "BR", "KE"],
     city: ["Nuuk", "Urubici", "Nairobi"],
 
-    temperature: '',
-    humidity: '',
-    pressure: '',
+    temperature: [],
+    humidity: [],
+    pressure: [],
 
-    updateTime: '',
+    updateTime: [],
     isLoaded: false,
     error: [false, false, false]
   }
@@ -30,14 +30,13 @@ class App extends React.Component {
   }
 
   getWeather = async () => {
-
     this.setState({ isLoaded: false });
 
     var temperatures = [], pressures = [], humidityes = [], errors = [];
     var api_call = [], data = [];
 
-    for (let index = 0; index < 3; index++) {
-    
+    for (let index = 0; index < this.state.city.length; index++) {
+
       api_call[index] = (await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city[index]},${this.state.country[index]}&appid=${API_KEY}&units=metric`));
       data[index] = (await api_call[index].json());
 
@@ -121,7 +120,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
 
 export default App;
