@@ -2,6 +2,11 @@
 
 See the weather in real time with this awesome app!
 
+Link to instant acess of App:
+
+
+![alt text](https://image.ibb.co/hCAq0H/Weather_Now.png)
+
 ## Getting Started
 
 To initiate the project we need to get the files and put in our local machine.
@@ -9,7 +14,7 @@ To initiate the project we need to get the files and put in our local machine.
 ### Prerequisites
  
  To build and run this app for development or production mode we need to be certain that we have two
- components installed: NPM & React DOM
+ components installed: NPM, Yarn and React DOM
  
 ### Installing
 
@@ -18,8 +23,19 @@ Step by step of how to install them.
 ```
 -cd weathernow
 -npm install --save react react-dom
+-yarn install
+```
+After that you can run:
+```
 -npm start
 ```
+
+or
+
+```
+-yarn start
+```
+
 After the last command line the terminal will send a command to open our browser in our localhost with default port 3000, running the app.
 
 ## Running the tests
