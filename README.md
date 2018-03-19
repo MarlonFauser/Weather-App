@@ -17,16 +17,26 @@ To initiate the project we need to get the files and put in our local machine.
 ### Prerequisites
  
  To build and run this app for development or production mode we need to be certain that we have three
- components installed: NPM, Yarn and React DOM
+ components installed: Chocolatey, React DOM. NPM or Yarn.
  
 ### Installing
 
-Step by step of how to install them.
+#### Step by step of how to install them
 
+Open Power Shell with Administrator
+
+```
+-Set-ExecutionPolicy AllSigned
+-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+-choco upgrade chocolatey
+-choco install nodejs.install
+-choco upgrade nodejs.install
+-choco install yarn
+```
+Choco will ask us (two times) to run the script (after yarn installed), press Y to run and install definetly
 ```
 -cd weathernow
 -npm install --save react react-dom
--yarn install
 ```
 After that you can run:
 ```
