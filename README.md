@@ -36,7 +36,7 @@ Open Power Shell with Administrator
 Choco will ask us (two times) to run the script (after yarn installed), press Y to run and install definetly
 ```
 -cd weathernow
--npm install --save react react-dom
+-npm install --save-dev
 ```
 After that you can run:
 ```
