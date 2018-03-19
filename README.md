@@ -3,9 +3,12 @@
 See the weather in real time with this awesome app!
 
 Link to instant acess of App:
+[Weather App by Marlon Fauser](https://weathernow-zyqjlzisrb.now.sh/)
 
+## Preview
 
 ![alt text](https://image.ibb.co/hCAq0H/Weather_Now.png)
+
 
 ## Getting Started
 
