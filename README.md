@@ -2,7 +2,7 @@
 
 See the weather in real time with this awesome app!
 
-Link to instant acess of App:
+Link to instant acess to App:
 [Weather App by Marlon Fauser](https://weathernow-zyqjlzisrb.now.sh/)
 
 ## Preview
@@ -59,10 +59,6 @@ oject/tags).
 ## Authors
 
 * **Marlon Fauser** - *Full work* - [MarlonFauser](https://github.com/MarlonFauser)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
