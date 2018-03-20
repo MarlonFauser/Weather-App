@@ -32,11 +32,11 @@ class App extends React.Component {
   getWeather = async () => {
     this.setState({ isLoaded: false });
 
+    const currentTime = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
     var temperatures = [], pressures = [], humidityes = [], errors = [];
     var api_call = [], data = [];
 
     for (let index = 0; index < this.state.city.length; index++) {
-
       api_call[index] = (await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city[index]},${this.state.country[index]}&appid=${API_KEY}&units=metric`));
       data[index] = (await api_call[index].json());
 
@@ -54,8 +54,6 @@ class App extends React.Component {
       }
     }
 
-    const currentTime = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
-
     this.setState({
       temperature: temperatures,
       pressure: pressures,
@@ -70,53 +68,35 @@ class App extends React.Component {
     );
   }
 
+  renderBox(index) {
+    const classes = ['divBoxTop', 'divBoxMiddle', 'divBoxBottom'];
+    const expand = [false, true, false]
+    return (
+      <div className={classes[index]}>
+        <Weather
+          country={this.state.country[index]}
+          city={this.state.city[index]}
+          temperature={this.state.temperature[index]}
+          humidity={this.state.humidity[index]}
+          pressure={this.state.pressure[index]}
+          updateTime={this.state.updateTime}
+          isLoaded={this.state.isLoaded}
+          expand={expand[index]}
+          error={this.state.error[index]}
+        />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="divCenter">
         <header className="headerTopFix">
           <img src={Logo} alt="logo" height="50px" width="165px" />
         </header>
-        <div className="contentPane">
-          <div className="divBoxTop">
-            <Weather
-              country={this.state.country[0]}
-              city={this.state.city[0]}
-              temperature={this.state.temperature[0]}
-              humidity={this.state.humidity[0]}
-              pressure={this.state.pressure[0]}
-              updateTime={this.state.updateTime}
-              isLoaded={this.state.isLoaded}
-              expand={false}
-              error={this.state.error[0]}
-            />
-          </div>
-          <div className="divBoxMiddle">
-            <Weather
-              country={this.state.country[1]}
-              city={this.state.city[1]}
-              temperature={this.state.temperature[1]}
-              humidity={this.state.humidity[1]}
-              pressure={this.state.pressure[1]}
-              updateTime={this.state.updateTime}
-              isLoaded={this.state.isLoaded}
-              expand={true}
-              error={this.state.error[1]}
-            />
-          </div>
-          <div className="divBoxBottom">
-            <Weather
-              country={this.state.country[2]}
-              city={this.state.city[2]}
-              temperature={this.state.temperature[2]}
-              humidity={this.state.humidity[2]}
-              pressure={this.state.pressure[2]}
-              updateTime={this.state.updateTime}
-              isLoaded={this.state.isLoaded}
-              expand={false}
-              error={this.state.error[2]}
-            />
-          </div>
-        </div>
+        {this.renderBox(0)}
+        {this.renderBox(1)}
+        {this.renderBox(2)}
       </div>
     );
   }

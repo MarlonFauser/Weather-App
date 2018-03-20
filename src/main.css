@@ -39,8 +39,9 @@
 
 .divBoxTop{
   display: inline-flex;
-  padding-top: 10%;
+  padding-top: 20%;
   height: 100%;
+  width: 300px;
 }
 .divBoxMiddle{
   padding-top: 10%;
@@ -54,6 +55,7 @@
   display: inline-flex;
   padding-bottom: 10%;
   height: 100%;
+  width: 300px;
 }
 
 .divBoxIn{
