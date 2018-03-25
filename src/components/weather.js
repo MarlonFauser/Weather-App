@@ -19,12 +19,12 @@ class Weather extends React.Component {
     render() {
         return (
             <div onClick={this.divEventClickHandler} className="divBoxIn">
-                {this.props.city && <p className="headerDivBox">{this.props.city}, {this.props.country}</p>}
+                {this.props.city && <p className="headerDivBox">{this.props.city}{this.props.isLoaded && this.props.temperature && ', ' + this.props.country}</p>}
                 {this.props.temperature <= 5 && this.props.isLoaded && <span className={"blueDegree"}> {this.props.temperature}<span className="celsius">º</span></span>}
                 {this.props.temperature >= 6 && this.props.isLoaded && this.props.temperature <= 26 && <span className={"orangeDegree"}> {this.props.temperature}<span className="celsius">º</span></span>}
                 {this.props.temperature >= 27 && this.props.isLoaded && <span className={"redDegree"}> {this.props.temperature}<span className="celsius">º</span></span>}
                 {!this.props.isLoaded && <label>Loading <Loader /></label>}
-                {this.props.error && <p className="pError">Something went wrong</p>}
+                {this.props.error && <p className="pError">{this.props.error}</p>}
                 {this.props.error && <button onClick={this.buttonEventClickHandler}>Try Again</button>}
                 <div className="greyFooter">
                     <table>

@@ -4,12 +4,14 @@ import './main.css';
 import Weather from "./components/weather";
 
 const API_KEY = "66b518fd6a1ee055b9a133bd70fa79ab";
+let searchError = "";
+let randomRender = 0;
 
 class App extends React.Component {
 
   state = {
-    country: ["GL", "BR", "KE"],
-    city: ["Nuuk", "Urubici", "Nairobi"],
+    country: [],
+    city: ["Montreal", "Joinville", "Rio de Janeiro"],
 
     temperature: [],
     humidity: [],
@@ -22,32 +24,53 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.getWeather();
+    this.getWeather(false);
+    this.buttonEventClickHandler = this.buttonEventClickHandler.bind(this);
   }
 
   refresh(parameter) {
     setTimeout(parameter, 600000);
   }
 
-  getWeather = async () => {
+  getWeather = async (searchCalling) => {
     this.setState({ isLoaded: false });
-
     const currentTime = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
-    var temperatures = [], pressures = [], humidityes = [], errors = [];
+    var temperatures = [], pressures = [], humidities = [], countries = [], errors = [];
     var api_call = [], data = [];
 
+    if (searchCalling) {
+      let searchText = document.getElementById('txSearch');
+      searchText.value = searchText.value.charAt(0).toUpperCase() + searchText.value.slice(1);
+      if (searchText.value.toLowerCase() == this.state.city[0].toLowerCase()) {
+        this.setState({
+          city: [this.state.city[2], searchText.value, this.state.city[1]]
+        });
+      }
+      else if (searchText.value.toLowerCase() == this.state.city[2].toLowerCase()) {
+        this.setState({
+          city: [this.state.city[1], searchText.value, this.state.city[0]]
+        });
+      }
+      else if (searchText.value.toLowerCase() != this.state.city[1].toLowerCase()) {
+        this.setState({
+          city: [this.state.city[1], searchText.value, this.state.city[0]]
+        });
+      }
+    }
+
     for (let index = 0; index < this.state.city.length; index++) {
-      api_call[index] = (await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city[index]},${this.state.country[index]}&appid=${API_KEY}&units=metric`));
+      api_call[index] = (await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city[index]}&appid=${API_KEY}&units=metric`));
       data[index] = (await api_call[index].json());
 
       //Data.Cod == 200, are equal to a "Okay" response from server.
-      if (data[index].cod == "200") {
-        temperatures[index] = (Math.round(data[index].main.temp));
-        pressures[index] = (Math.round(data[index].main.pressure));
-        humidityes[index] = (data[index].main.humidity);
+      if (data[index].cod == '200') {
+        countries[index] = data[index].sys.country;
+        temperatures[index] = Math.round(data[index].main.temp);
+        pressures[index] = Math.round(data[index].main.pressure);
+        humidities[index] = data[index].main.humidity;
       }
       else {
-        errors[index] = data[index].message != undefined;
+        errors[index] = data[index].message.charAt(0).toUpperCase() + data[index].message.slice(1);
         this.setState({
           isLoaded: true
         });
@@ -55,16 +78,17 @@ class App extends React.Component {
     }
 
     this.setState({
+      country: countries,
       temperature: temperatures,
       pressure: pressures,
-      humidity: humidityes,
+      humidity: humidities,
       updateTime: currentTime,
       isLoaded: true,
       error: errors
     });
 
     this.refresh(afterThis =>
-      this.getWeather()
+      this.getWeather(false)
     );
   }
 
@@ -88,12 +112,50 @@ class App extends React.Component {
     );
   }
 
+  Searchweather() {
+    console.log(searchError);
+    return (
+      React.createElement('div', { className: 'divSearch' },
+        React.createElement('div', { className: 'divText' },
+          React.createElement('input', { id: 'txSearch', type: 'text', name: 'fname', placeholder: "Type a city to search", onKeyPress: this.txSearchKeyPress })),
+        React.createElement('div', { className: 'divButton' }),
+        React.createElement('input', { type: 'button', value: 'Search', onClick: this.buttonEventClickHandler }),
+        React.createElement('p', { id: 'pSearchError', className: 'labelSearchError' })
+      )
+    );
+  }
+
+  txSearchKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.buttonEventClickHandler();
+    }
+  }
+
+  buttonEventClickHandler = async (event) => {
+    var searchText = document.getElementById('txSearch');
+    const api_call_tester = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchText.value}&appid=${API_KEY}&units=metric`);
+    const data_tester = await api_call_tester.json();
+
+    var searchError = document.getElementById('pSearchError');
+    if (!data_tester.message) {
+      searchError.innerText = "";
+      searchText.style.borderColor = "green";
+      this.getWeather(true);
+    }
+    else {
+      searchError.innerText = data_tester.message.charAt(0).toUpperCase() + data_tester.message.slice(1);
+      searchText.style.borderColor = "#ED1946";
+      searchText.focus();
+    }
+  }
+
   render() {
     return (
       <div className="divCenter">
         <header className="headerTopFix">
           <img src={Logo} alt="logo" height="50px" width="165px" />
         </header>
+        {this.Searchweather()}
         {this.renderBox(0)}
         {this.renderBox(1)}
         {this.renderBox(2)}
