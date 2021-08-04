@@ -72,4 +72,4 @@ oject/tags).
 
 ## Acknowledgments
 
-* The future are in our hands.
+* The future are in our hands
