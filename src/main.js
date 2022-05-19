@@ -3,7 +3,7 @@ import Logo from './logo.svg';
 import './main.css';
 import Weather from "./components/weather";
 
-const API_KEY = "66b518fd6a1ee055b9a133bd70fa79ab";
+const API_KEY = "4ee4aa3da3933127826ab0c875ff2d79";
 let searchError = "";
 let randomRender = 0;
 
