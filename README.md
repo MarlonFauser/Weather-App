@@ -3,7 +3,7 @@
 See the weather in real time with this awesome app!
 
 Link to instant acess to App:
-[Weather App by Marlon Fauser](https://weathernow-qortdvsrug.now.sh/)
+[Weather App by Marlon Fauser](https://stormy-bayou-46089.herokuapp.com/)
 
 ## Preview
 
